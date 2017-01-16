@@ -1,0 +1,20 @@
+
+
+
+
+- group:
+    name: denyssh
+    state: present
+    gid: 999
+    
+- user:
+    name: wasadm
+    group: wasadm
+    
+- cron:
+    name: "cronjob example for root"
+    minute: "0"
+    hour: "1, 12"
+    job: "date >> /var/log/datelog"
+    
+    
