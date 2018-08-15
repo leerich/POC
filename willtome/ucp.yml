@@ -1,0 +1,9 @@
+---
+- name: Bash Script to Ansible Playbook
+  hosts: all
+  
+  tasks: 
+    - name: install UCP with License
+      shell: "docker run --rm -it --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp:{{ UCP_VERSION }} install --admin-username admin --admin-password {{ UCP_ADMIN_PASSWORD }} --disable-tracking --disable-usage --external-server-cert --license {{ UCP_LICENSE }} "
+      when: installUCPwithLicense == true
+      
